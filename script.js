@@ -1,30 +1,43 @@
+let coins = 0; // Total coins earned
+let energy = 100; // Initial energy
+const coinsPerClick = 10; // Coins earned per tap
+const maxEnergy = 100; // Maximum energy
+const energyDecreaseRate = 1; // Energy decrease per click
+
+// Function to update the coin balance display
+function updateBalance() {
+    document.getElementById('coinBalance').innerText = coins;
+}
+
+// Tapping the hero to earn coins
+document.getElementById('clickButton').addEventListener('click', () => {
+    if (energy > 0) {
+        coins += coinsPerClick; // Add coins on tap
+        energy -= energyDecreaseRate; // Decrease energy
+        updateBalance(); // Update displayed coin balance
+        animateHero(); // Animate hero on tap
+    } else {
+        alert('Not enough energy! Wait for it to recharge.'); // Alert if no energy
+    }
+});
+
+// Function to animate the hero when tapped
+function animateHero() {
+    const hero = document.getElementById('heroCharacter');
+    hero.style.transform = 'scale(1.1)';
+    setTimeout(() => {
+        hero.style.transform = 'scale(1)';
+    }, 200);
+}
+
+// Energy recharge over time
+setInterval(() => {
+    if (energy < maxEnergy) {
+        energy++;
+        document.getElementById('energyLevel').style.width = (energy / maxEnergy * 100) + '%';
+    }
+}, 1000);
+
+// Mining coins functionality
 document.getElementById('mineButton').onclick = function() {
-    const responseElement = document.getElementById('response');
-    responseElement.innerText = "Mining coins...";
-    
-    setTimeout(function() {
-        responseElement.innerText = "Success! You've mined 50 SproutCoins.";
-        responseElement.style.color = '#4caf50'; // Success message color
-    }, 2000); // Simulate mining delay
-};
-
-document.getElementById('checkBalanceButton').onclick = function() {
-    const responseElement = document.getElementById('response');
-    responseElement.innerText = "Checking balance...";
-    
-    setTimeout(function() {
-        responseElement.innerText = "Your balance is 500 SproutCoins.";
-        responseElement.style.color = '#00897b'; // Informational color
-    }, 1500); // Simulate checking balance
-};
-
-document.getElementById('statsButton').onclick = function() {
-    const responseElement = document.getElementById('response');
-    responseElement.innerText = "Loading stats...";
-    
-    setTimeout(function() {
-        responseElement.innerText = "You are ranked #25 with 1500 SproutCoins.";
-        responseElement.style.color = '#8e44ad'; // Stats color
-    }, 1800); // Simulate stats loading
-};
-
+    const responseElement = document.getElement⬤
