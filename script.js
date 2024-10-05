@@ -1,43 +1,49 @@
-let coins = 0; // Total coins earned
-let energy = 100; // Initial energy
-const coinsPerClick = 10; // Coins earned per tap
-const maxEnergy = 100; // Maximum energy
-const energyDecreaseRate = 1; // Energy decrease per click
+let coinBalance = 0;
+let wallet = 0;
+let coinsPerClick = 1; // Coins earned per click
+let profitPerHour = 0; // To be calculated
+let energy = 100; // Energy for clicking
 
-// Function to update the coin balance display
-function updateBalance() {
-    document.getElementById('coinBalance').innerText = coins;
-}
+document.getElementById('hero').onclick = function() {
+    earnCoins();
+};
 
-// Tapping the hero to earn coins
-document.getElementById('clickButton').addEventListener('click', () => {
+document.getElementById('earnButton').onclick = function() {
+    earnCoins();
+};
+
+function earnCoins() {
     if (energy > 0) {
-        coins += coinsPerClick; // Add coins on tap
-        energy -= energyDecreaseRate; // Decrease energy
-        updateBalance(); // Update displayed coin balance
-        animateHero(); // Animate hero on tap
+        coinBalance += coinsPerClick;
+        wallet += coinsPerClick;
+        energy -= 10; // Decrease energy on each click
+        updateDisplay();
+        updateEnergyBar();
     } else {
-        alert('Not enough energy! Wait for it to recharge.'); // Alert if no energy
+        alert("Not enough energy! Please wait to recharge.");
     }
-});
-
-// Function to animate the hero when tapped
-function animateHero() {
-    const hero = document.getElementById('heroCharacter');
-    hero.style.transform = 'scale(1.1)';
-    setTimeout(() => {
-        hero.style.transform = 'scale(1)';
-    }, 200);
 }
 
-// Energy recharge over time
-setInterval(() => {
-    if (energy < maxEnergy) {
-        energy++;
-        document.getElementById('energyLevel').style.width = (energy / maxEnergy * 100) + '%';
-    }
-}, 1000);
+function updateDisplay() {
+    document.getElementById('coinBalance').innerText = coinBalance;
+    document.getElementById('wallet').innerText = wallet;
+    document.getElementById('profitPerHour').innerText = profitPerHour;
+}
 
-// Mining coins functionality
-document.getElementById('mineButton').onclick = function() {
-    const responseElement = document.getElement⬤
+function updateEnergyBar() {
+    const energyBar = document.getElementById('energyBar');
+    energyBar.style.width = energy + '%';
+    
+    if (energy < 100) {
+        setTimeout(() => {
+            energy = Math.min(100, energy + 5); // Recharge energy
+            updateEnergyBar();
+        }, 1000); // Recharge every second
+    }
+}
+
+// Start profit calculation (1 coin per minute)
+setInterval(() => {
+    profitPerHour += 1; // Increment profit per hour
+    updateDisplay();
+}, 60000); // Every minute
