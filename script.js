@@ -1,49 +1,24 @@
-let coinBalance = 0;
-let wallet = 0;
-let coinsPerClick = 1; // Coins earned per click
-let profitPerHour = 0; // To be calculated
-let energy = 100; // Energy for clicking
+// Function to update the balance
+function updateBalance() {
+    const balanceDisplay = document.getElementById('balance');
+    const coinsPerHour = 0; // Set the earning rate if needed
+    let currentBalance = parseInt(balanceDisplay.textContent.split(' ')[1]); // Get current balance from display
+    let newBalance = currentBalance + Math.floor(Math.random() * 10); // Simulate earning random coins between 0-10
+    balanceDisplay.textContent = `Balance: ${newBalance} SproutCoins`; // Update balance display
+}
 
-document.getElementById('hero').onclick = function() {
-    earnCoins();
-};
-
-document.getElementById('earnButton').onclick = function() {
-    earnCoins();
-};
-
+// Function to simulate earning SproutCoins when button is clicked
 function earnCoins() {
-    if (energy > 0) {
-        coinBalance += coinsPerClick;
-        wallet += coinsPerClick;
-        energy -= 10; // Decrease energy on each click
-        updateDisplay();
-        updateEnergyBar();
-    } else {
-        alert("Not enough energy! Please wait to recharge.");
-    }
+    const earnButton = document.getElementById('earn-button');
+    earnButton.addEventListener('click', () => {
+        updateBalance();
+    });
 }
 
-function updateDisplay() {
-    document.getElementById('coinBalance').innerText = coinBalance;
-    document.getElementById('wallet').innerText = wallet;
-    document.getElementById('profitPerHour').innerText = profitPerHour;
+// Function to initialize the app
+function init() {
+    earnCoins(); // Set up the earn coins button functionality
 }
 
-function updateEnergyBar() {
-    const energyBar = document.getElementById('energyBar');
-    energyBar.style.width = energy + '%';
-    
-    if (energy < 100) {
-        setTimeout(() => {
-            energy = Math.min(100, energy + 5); // Recharge energy
-            updateEnergyBar();
-        }, 1000); // Recharge every second
-    }
-}
-
-// Start profit calculation (1 coin per minute)
-setInterval(() => {
-    profitPerHour += 1; // Increment profit per hour
-    updateDisplay();
-}, 60000); // Every minute
+// Run the initialization function on page load
+window.onload = init;
