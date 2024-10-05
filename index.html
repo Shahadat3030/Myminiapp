@@ -3,22 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SproutCoin Game</title>
+    <title>Sprout Tap Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>SproutCoin Game</h1>
-        <div id="game-area">
-            <div id="hero" class="hero"></div>
-            <div id="coins-container">
-                <span id="coins">Coins: 0</span>
-                <span id="per-hour-profit">Per Hour Profit: 0</span>
-            </div>
-            <div id="balance">Balance: 38 SproutCoins</div>
-            <button id="earn-button">Earn SproutCoins!</button>
+        <h1>Sprout Tap Game</h1>
+
+        <!-- Coin Display -->
+        <div class="coin-display">
+            <p>Coins: <span id="coinCount">0</span></p>
+            <button id="tapToEarn" class="tap-button">Tap to Earn Coins</button>
         </div>
+
+        <!-- Profit per Hour Display -->
+        <div class="profit-display">
+            <p>Profit per Hour: <span id="profitPerHour">0</span> SproutCoins</p>
+        </div>
+
+        <!-- Energy Bar -->
+        <div class="energy-bar">
+            <p>Energy: <span id="energy">100</span>%</p>
+            <div class="bar">
+                <div id="energyLevel" class="energy-level"></div>
+            </div>
+        </div>
+
+        <!-- Invite Friends (Placeholder) -->
+        <div class="invite-friends">
+            <p>Invite Friends for Extra Coins</p>
+        </div>
+
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
