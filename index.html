@@ -3,29 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SproutCoins Game</title>
+    <title>Hero on Interface</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .interface {
+            width: 400px;
+            height: 600px;
+            background-color: #ccc;
+            border: 2px solid #333;
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero {
+            width: 100px; /* Adjust the size as needed */
+            height: 150px; /* Adjust the size as needed */
+            background-image: url('path/to/hero-image.png'); /* Replace with your hero image path */
+            background-size: cover;
+            position: absolute;
+            bottom: 0; /* Position the hero at the bottom of the interface */
+            left: 50%; /* Center the hero */
+            transform: translateX(-50%);
+        }
+
+        .content {
+            text-align: center;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: auto;
+        }
+    </style>
 </head>
 <body>
-    <div class="navbar">
-        <h1>SproutCoins Game</h1>
-        <div class="balance">Balance: <span id="coinBalance">0</span> SproutCoins</div>
+    <header>
+        <h1>Welcome to the Hero Interface</h1>
+        <p>Your adventure begins here!</p>
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <div class="interface">
+            <div class="hero"></div>
+        </div>
+        <div class="content">
+            <h2>Hero's Journey</h2>
+            <p>Join our hero in an epic adventure through magical lands!</p>
+            <p>Explore, fight, and conquer challenges that lie ahead!</p>
+            <button onclick="alert('Adventure Awaits!')">Start Your Adventure</button>
+        </div>
     </div>
-
-    <div class="game-container">
-        <div class="hero" id="hero">
-            <img src="hero.png" alt="Hero" id="heroImage">
-        </div>
-        <div class="energy-bar">
-            <div class="energy" id="energyBar"></div>
-        </div>
-        <div class="coin-wallet">
-            <div class="wallet">Coin Wallet: <span id="wallet">0</span> SproutCoins</div>
-            <div class="per-hour">Per Hour Profit: <span id="profitPerHour">0</span> SproutCoins</div>
-        </div>
-        <button id="earnButton">Earn SproutCoins!</button>
-    </div>
-
-    <script src="script.js"></script>
+    
+    <footer>
+        <p>&copy; 2024 Hero Interface. All rights reserved.</p>
+        <p>Follow us on <a href="#" style="color: white; text-decoration: underline;">Social Media</a></p>
+    </footer>
 </body>
 </html>
