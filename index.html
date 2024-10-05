@@ -1,65 +1,83 @@
 <!doctype html>
 <html lang="en"> 
- <head> 
+<head> 
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <title>SproutCoins</title> 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&amp;display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="style.css"> 
- </head> 
- <body> <!-- Navigation Bar --> 
+</head> 
+<body> 
+  <!-- Navigation Bar --> 
   <header> 
-   <div class="navbar"> 
-    <img src="sprout_logo.png" alt="SproutCoins Logo" class="logo"> 
-    <nav> 
-     <ul> 
-      <li><a href="#home">Home</a></li> 
-      <li><a href="#features">Features</a></li> 
-      <li><a href="#about">About</a></li> 
-     </ul> 
-    </nav> 
-   </div> 
-  </header> <!-- Main Content --> 
+    <div class="navbar"> 
+      <!-- Update the src attribute with the actual logo path -->
+      <img src="https://example.com/path-to-your-sprout-logo.png" alt="SproutCoins Logo" class="logo"> 
+      <nav> 
+        <ul> 
+          <li><a href="#home">Home</a></li> 
+          <li><a href="#features">Features</a></li> 
+          <li><a href="#about">About</a></li> 
+        </ul> 
+      </nav> 
+    </div> 
+  </header> 
+
+  <!-- Main Content --> 
   <section id="home" class="hero-section"> 
-   <div class="container"> 
-    <div class="hero-content"> 
-     <h1>Welcome to SproutCoins</h1> 
-     <p>Start earning digital currency by mining and managing your balance effortlessly.</p> <button id="startButton" class="cta-btn">Get Started</button> 
+    <div class="container"> 
+      <div class="hero-content"> 
+        <h1>Welcome to SproutCoins</h1> 
+        <p>Start earning digital currency by mining and managing your balance effortlessly.</p> 
+        <button id="startButton" class="cta-btn">Get Started</button> 
+      </div> 
     </div> 
-   </div> 
-  </section> <!-- Features Section --> 
+  </section> 
+
+  <!-- Features Section --> 
   <section id="features"> 
-   <div class="container"> 
-    <div class="features-grid"> 
-     <div class="feature-card"> 
-      <h2>Mine Coins</h2> 
-      <p>Generate coins with a simple click. Earn rewards and grow your wallet.</p> <button id="mineButton" class="primary-btn">Mine Coins!</button> 
-     </div> 
-     <div class="feature-card"> 
-      <h2>Check Balance</h2> 
-      <p>View your coin balance instantly with real-time updates.</p> <button id="checkBalanceButton" class="secondary-btn">Check Balance</button> 
-     </div> 
-     <div class="feature-card"> 
-      <h2>Stats &amp; Leaderboard</h2> 
-      <p>Compare your coin stats with others and climb the leaderboard.</p> <button id="statsButton" class="tertiary-btn">View Stats</button> 
-     </div> 
+    <div class="container"> 
+      <div class="features-grid"> 
+        <div class="feature-card"> 
+          <h2>Mine Coins</h2> 
+          <p>Generate coins with a simple click. Earn rewards and grow your wallet.</p> 
+          <button id="mineButton" class="primary-btn">Mine Coins!</button> 
+        </div> 
+        <div class="feature-card"> 
+          <h2>Check Balance</h2> 
+          <p>View your coin balance instantly with real-time updates.</p> 
+          <button id="checkBalanceButton" class="secondary-btn">Check Balance</button> 
+        </div> 
+        <div class="feature-card"> 
+          <h2>Stats & Leaderboard</h2> 
+          <p>Compare your coin stats with others and climb the leaderboard.</p> 
+          <button id="statsButton" class="tertiary-btn">View Stats</button> 
+        </div> 
+      </div> 
+      <p id="response" class="response"></p> 
     </div> 
-    <p id="response" class="response"></p> 
-   </div> 
-  </section> <!-- About Section --> 
+  </section> 
+
+  <!-- About Section --> 
   <section id="about" class="about-section"> 
-   <div class="container"> 
-    <h2>About SproutCoins</h2> 
-    <p>SproutCoins is a digital currency platform where users can mine, manage, and grow their digital assets. Our goal is to make crypto simple and accessible for everyone.</p> 
-   </div> 
-  </section> <!-- Footer --> 
-  <footer> 
-   <div class="footer-container"> 
-    <p>© 2024 SproutCoins. All Rights Reserved.</p> 
-    <div class="social-icons"> <a href="#"><img src="facebook-icon.png" alt="Facebook"></a> <a href="#"><img src="twitter-icon.png" alt="Twitter"></a> <a href="#"><img src="instagram-icon.png" alt="Instagram"></a> 
+    <div class="container"> 
+      <h2>About SproutCoins</h2> 
+      <p>SproutCoins is a digital currency platform where users can mine, manage, and grow their digital assets. Our goal is to make crypto simple and accessible for everyone.</p> 
     </div> 
-   </div> 
+  </section> 
+
+  <!-- Footer --> 
+  <footer> 
+    <div class="footer-container"> 
+      <p>© 2024 SproutCoins. All Rights Reserved.</p> 
+      <div class="social-icons"> 
+        <a href="#"><img src="facebook-icon.png" alt="Facebook"></a> 
+        <a href="#"><img src="twitter-icon.png" alt="Twitter"></a> 
+        <a href="#"><img src="instagram-icon.png" alt="Instagram"></a> 
+      </div> 
+    </div> 
   </footer> 
+
   <script src="script.js"></script> 
- 
-</body></html>
+</body>
+</html>
