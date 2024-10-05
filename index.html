@@ -1,97 +1,31 @@
-<!doctype html>
-<html lang="en"> 
-<head> 
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>SproutCoins</title> 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet" href="style.css"> 
-</head> 
-<body> 
-  <!-- Navigation Bar --> 
-  <header> 
-    <div class="navbar"> 
-      <img src="https://example.com/path-to-your-sprout-logo.png" alt="SproutCoins Logo" class="logo"> 
-      <nav> 
-        <ul> 
-          <li><a href="#home">Home</a></li> 
-          <li><a href="#features">Features</a></li> 
-          <li><a href="#about">About</a></li> 
-        </ul> 
-      </nav> 
-    </div> 
-  </header> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SproutCoins Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>SproutCoins Game</h1>
+        <div class="balance">Balance: <span id="coinBalance">0</span> SproutCoins</div>
+    </div>
 
-  <!-- Main Content --> 
-  <section id="home" class="hero-section"> 
-    <div class="container"> 
-      <div class="hero-content"> 
-        <h1>Welcome to SproutCoins</h1> 
-        <p>Start earning digital currency by mining and managing your balance effortlessly.</p> 
-        <button id="startButton" class="cta-btn">Get Started</button> 
-      </div> 
-    </div> 
-  </section> 
-
-  <!-- Features Section --> 
-  <section id="features"> 
-    <div class="container"> 
-      <div class="features-grid"> 
-        <div class="feature-card"> 
-          <h2>Mine Coins</h2> 
-          <p>Generate coins with a simple click. Earn rewards and grow your wallet.</p> 
-          <button id="mineButton" class="primary-btn">Mine Coins!</button> 
-        </div> 
-        <div class="feature-card"> 
-          <h2>Check Balance</h2> 
-          <p>View your coin balance instantly with real-time updates.</p> 
-          <button id="checkBalanceButton" class="secondary-btn">Check Balance</button> 
-        </div> 
-        <div class="feature-card"> 
-          <h2>Stats & Leaderboard</h2> 
-          <p>Compare your coin stats with others and climb the leaderboard.</p> 
-          <button id="statsButton" class="tertiary-btn">View Stats</button> 
-        </div> 
-      </div> 
-      <p id="response" class="response"></p> 
-    </div> 
-  </section> 
-
-  <!-- About Section --> 
-  <section id="about" class="about-section"> 
-    <div class="container"> 
-      <h2>About SproutCoins</h2> 
-      <p>SproutCoins is a digital currency platform where users can mine, manage, and grow their digital assets. Our goal is to make crypto simple and accessible for everyone.</p> 
-    </div> 
-  </section> 
-
-  <!-- Game Interface --> 
-  <section id="game" class="game-section"> 
-    <div class="container"> 
-      <h2>Tap the Hero!</h2> 
-      <div class="game-container">
-        <img src="https://example.com/path-to-your-hero-image.png" alt="Hero Character" class="hero" id="heroCharacter">
-        <div class="energy-bar">
-          <div class="energy-level" id="energyLevel" style="width: 100%;"></div>
+    <div class="game-container">
+        <div class="hero" id="hero">
+            <img src="hero.png" alt="Hero" id="heroImage">
         </div>
-      </div>
-      <button class="cta-btn" id="clickButton">Tap the Hero!</button>
-      <div class="balance-display">Coins: <span id="coinBalance">0</span></div>
-    </div> 
-  </section> 
+        <div class="energy-bar">
+            <div class="energy" id="energyBar"></div>
+        </div>
+        <div class="coin-wallet">
+            <div class="wallet">Coin Wallet: <span id="wallet">0</span> SproutCoins</div>
+            <div class="per-hour">Per Hour Profit: <span id="profitPerHour">0</span> SproutCoins</div>
+        </div>
+        <button id="earnButton">Earn SproutCoins!</button>
+    </div>
 
-  <!-- Footer --> 
-  <footer> 
-    <div class="footer-container"> 
-      <p>© 2024 SproutCoins. All Rights Reserved.</p> 
-      <div class="social-icons"> 
-        <a href="#"><img src="facebook-icon.png" alt="Facebook"></a> 
-        <a href="#"><img src="twitter-icon.png" alt="Twitter"></a> 
-        <a href="#"><img src="instagram-icon.png" alt="Instagram"></a> 
-      </div> 
-    </div> 
-  </footer> 
-
-  <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>
