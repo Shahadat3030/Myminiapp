@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprout Tap Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
 </head>
 <body>
     <div class="container">
@@ -29,13 +29,30 @@
             </div>
         </div>
 
+        <!-- Character Selection -->
+        <div class="character-selection">
+            <h2>Select Your Character</h2>
+            <div id="characterContainer">
+                <!-- Character images will be added here -->
+                <img src="characters/character1.webp" alt="Character 1" class="character" onclick="selectCharacter('character1')">
+                <img src="characters/character2.webp" alt="Character 2" class="character" onclick="selectCharacter('character2')">
+                <img src="characters/character3.webp" alt="Character 3" class="character" onclick="selectCharacter('character3')">
+                <img src="characters/character4.webp" alt="Character 4" class="character" onclick="selectCharacter('character4')">
+                <img src="characters/character5.webp" alt="Character 5" class="character" onclick="selectCharacter('character5')">
+                <img src="characters/character6.webp" alt="Character 6" class="character" onclick="selectCharacter('character6')">
+                <img src="characters/character7.webp" alt="Character 7" class="character" onclick="selectCharacter('character7')">
+                <img src="characters/character8.webp" alt="Character 8" class="character" onclick="selectCharacter('character8')">
+            </div>
+            <p id="selectedCharacter">Selected Character: None</p>
+        </div>
+
         <!-- Invite Friends (Placeholder) -->
         <div class="invite-friends">
             <p>Invite Friends for Extra Coins</p>
+            <button id="inviteButton">Invite</button>
         </div>
-
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Link to your JavaScript -->
 </body>
 </html>
