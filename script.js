@@ -12,6 +12,30 @@ const energyLevel = document.getElementById('energyLevel');
 const profitDisplay = document.getElementById('profitPerHour');
 const tapButton = document.getElementById('tapToEarn');
 
+// Character Images
+const characters = [
+    "https://raw.githubusercontent.com/Shahadat3030/Myminiapp/refs/heads/main/Characters/Character1.webp",
+    "https://raw.githubusercontent.com/Shahadat3030/Myminiapp/refs/heads/main/Characters/character2.webp",
+    "https://raw.githubusercontent.com/Shahadat3030/Myminiapp/refs/heads/main/Characters/character3.webp",
+    "https://raw.githubusercontent.com/Shahadat3030/Myminiapp/refs/heads/main/Characters/character4.webp",
+    "https://raw.githubusercontent.com/Shahadat3030/Myminiapp/refs/heads/main/Characters/character5.webp",
+    "https://raw.githubusercontent.com/Shahadat3030/Myminiapp/refs/heads/main/Characters/character6.webp",
+    "https://raw.githubusercontent.com/Shahadat3030/Myminiapp/refs/heads/main/Characters/character7.webp",
+    "https://raw.githubusercontent.com/Shahadat3030/Myminiapp/refs/heads/main/Characters/character8.webp"
+];
+
+// Set the character image when the game starts
+function initializeGame() {
+    const selectedCharacter = getRandomCharacter();
+    document.getElementById('characterImage').src = selectedCharacter;
+}
+
+// Function to get a random character
+function getRandomCharacter() {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    return characters[randomIndex];
+}
+
 // Function to earn coins
 function earnCoins() {
     if (energy > 0) {
@@ -52,3 +76,6 @@ tapButton.addEventListener('click', () => {
     earnCoins();
     calculateProfitPerHour();  // Update profit per hour
 });
+
+// Initialize the game when the page loads
+window.onload = initializeGame;
