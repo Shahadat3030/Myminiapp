@@ -10,7 +10,7 @@ const coinCount = document.getElementById('coinCount');
 const energyDisplay = document.getElementById('energy');
 const energyLevel = document.getElementById('energyLevel');
 const profitDisplay = document.getElementById('profitPerHour');
-const tapButton = document.getElementById('tapToEarn');
+const characterImage = document.getElementById('characterImage');
 
 // Character Images
 const characters = [
@@ -27,7 +27,7 @@ const characters = [
 // Set the character image when the game starts
 function initializeGame() {
     const selectedCharacter = getRandomCharacter();
-    document.getElementById('characterImage').src = selectedCharacter;
+    characterImage.src = selectedCharacter;
 }
 
 // Function to get a random character
@@ -36,15 +36,14 @@ function getRandomCharacter() {
     return characters[randomIndex];
 }
 
-// Function to earn coins
+// Function to earn coins by clicking on the character
 function earnCoins() {
     if (energy > 0) {
-        coins += 1;  // Increment coins by 1 per tap
+        coins += 1;  // Increment coins by 1 per click
         coinCount.textContent = coins;
-        energy -= 5;  // Decrease energy by 5 for every tap
+        energy -= 5;  // Decrease energy by 5 for every click
         updateEnergyBar();
     } else {
-        tapButton.disabled = true;  // Disable button if energy is 0
         alert("You're out of energy! Please wait for regeneration.");
     }
 }
@@ -61,7 +60,6 @@ setInterval(() => {
         energy += energyRegenRate;  // Regenerate energy
         if (energy > maxEnergy) energy = maxEnergy;  // Cap at max energy
         updateEnergyBar();
-        tapButton.disabled = false;  // Enable button if energy > 0
     }
 }, 1000);  // Regenerate energy every second
 
@@ -71,8 +69,8 @@ function calculateProfitPerHour() {
     profitDisplay.textContent = profitPerHour.toFixed(2);
 }
 
-// Event Listener for tapping button
-tapButton.addEventListener('click', () => {
+// Event Listener for clicking the character
+characterImage.addEventListener('click', () => {
     earnCoins();
     calculateProfitPerHour();  // Update profit per hour
 });
