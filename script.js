@@ -3,7 +3,8 @@ let coins = 0;
 let energy = 100;
 let profitPerHour = 0;
 let maxEnergy = 100;
-let energyRegenRate = 1;  // Energy regenerated per second
+let energyRegenRate = 1; // Energy regenerated per second
+let selectedCharacter = "None"; // Initialize selected character
 
 // DOM Elements
 const coinCount = document.getElementById('coinCount');
@@ -11,16 +12,18 @@ const energyDisplay = document.getElementById('energy');
 const energyLevel = document.getElementById('energyLevel');
 const profitDisplay = document.getElementById('profitPerHour');
 const tapButton = document.getElementById('tapToEarn');
+const selectedCharacterDisplay = document.getElementById('selectedCharacter');
+const characterImages = document.querySelectorAll('.character'); // Select all character images
 
 // Function to earn coins
 function earnCoins() {
     if (energy > 0) {
-        coins += 1;  // Increment coins by 1 per tap
+        coins += 1; // Increment coins by 1 per tap
         coinCount.textContent = coins;
-        energy -= 5;  // Decrease energy by 5 for every tap
+        energy -= 5; // Decrease energy by 5 for every tap
         updateEnergyBar();
     } else {
-        tapButton.disabled = true;  // Disable button if energy is 0
+        tapButton.disabled = true; // Disable button if energy is 0
         alert("You're out of energy! Please wait for regeneration.");
     }
 }
@@ -34,21 +37,29 @@ function updateEnergyBar() {
 // Regenerate energy over time
 setInterval(() => {
     if (energy < maxEnergy) {
-        energy += energyRegenRate;  // Regenerate energy
-        if (energy > maxEnergy) energy = maxEnergy;  // Cap at max energy
+        energy += energyRegenRate; // Regenerate energy
+        if (energy > maxEnergy) energy = maxEnergy; // Cap at max energy
         updateEnergyBar();
-        tapButton.disabled = false;  // Enable button if energy > 0
+        tapButton.disabled = false; // Enable button if energy > 0
     }
-}, 1000);  // Regenerate energy every second
+}, 1000); // Regenerate energy every second
 
-// Placeholder for calculating profit per hour (to be implemented later)
+// Function to calculate profit per hour (to be implemented later)
 function calculateProfitPerHour() {
-    profitPerHour = coins / 1;  // Temporary placeholder
+    profitPerHour = coins / 1; // Temporary placeholder
     profitDisplay.textContent = profitPerHour.toFixed(2);
 }
 
 // Event Listener for tapping button
 tapButton.addEventListener('click', () => {
     earnCoins();
-    calculateProfitPerHour();  // Update profit per hour
+    calculateProfitPerHour(); // Update profit per hour
+});
+
+// Event listeners for character selection
+characterImages.forEach((image) => {
+    image.addEventListener('click', () => {
+        selectedCharacter = image.alt; // Get the alt text as the character name
+        selectedCharacterDisplay.textContent = `Selected Character: ${selectedCharacter}`; // Update display
+    });
 });
